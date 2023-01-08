@@ -11,7 +11,7 @@ const connection = async() => {
             //mongodb use by default ipv4 and cannot connect to localhost throught ipv4
             family: 4
         });
-        console.log("Connection established succesfully");
+        console.log("Connection to database established succesfully");
 
     }catch(err){
         console.log(err);
