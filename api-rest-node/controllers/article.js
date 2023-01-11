@@ -35,7 +35,7 @@ const createArticle = (req, res) =>{
 
 const listArticles = (req, res) =>{
 
-    let query = Article.find({})
+    let query = Article.find({});
     
     if(req.params.limit && !isNaN(req.params.limit)){
         query.limit(req.params.limit);
@@ -49,9 +49,8 @@ const listArticles = (req, res) =>{
             });
         }
 
-        return res.status(200).json({
-            status: "Success",
-            message: "Articles listed succesfully",
+        return res.status(200).send({
+            status: "success",
             articles
         });
     });
@@ -141,7 +140,7 @@ const uploadFile = (req, res) => {
     let file_split = file.split("\.");
     let extension = file_split[1];
 
-    if(extension != "png" && extension != "jpg" && extension != "jpeg" && extension != "gif"){
+    if(extension != "png" && extension != "jpg" && extension != "jpeg" && extension != "gif" && extension != "webp"){
         //delete distinc files
         fs.unlink(req.file.path, (error) => {
             return res.status(400).json({

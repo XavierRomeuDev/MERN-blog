@@ -30,7 +30,6 @@ router.post("/upload/:id", [uploads.single("file")],  controller.uploadFile);
 router.delete("/article/:id", controller.deleteArticle);
 
 //PUT routes
-router.put("/article/:id", controller.editArticle);
-
+router.put("/edit/:id", controller.editArticle);
 
 module.exports = router;
